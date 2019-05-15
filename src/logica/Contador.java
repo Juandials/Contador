@@ -32,4 +32,7 @@ public class Contador {
     public void retroceder() {
         this.valor -= 1;
     }
+    public void borrar(){
+        this.valor=0;
+    }
 }

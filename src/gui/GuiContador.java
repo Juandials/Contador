@@ -5,17 +5,20 @@
  */
 package gui;
 
+import logica.Contador;
+
 /**
  *
  * @author Estudiantes
  */
 public class GuiContador extends javax.swing.JFrame {
-
+    private Contador contador = new Contador();
     /**
      * Creates new form NewJFrame
      */
     public GuiContador() {
         initComponents();
+        lblValor.setText(String.valueOf(contador.getValor()));
     }
 
     /**
@@ -50,14 +53,29 @@ public class GuiContador extends javax.swing.JFrame {
 
         btnContador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnContador.setText("Contar");
+        btnContador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContadorActionPerformed(evt);
+            }
+        });
 
         btnDescontar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDescontar.setText("Descontar");
+        btnDescontar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescontarActionPerformed(evt);
+            }
+        });
 
-        btnBorrar.setBackground(new java.awt.Color(255, 51, 51));
+        btnBorrar.setBackground(new java.awt.Color(255, 255, 255));
         btnBorrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnBorrar.setForeground(new java.awt.Color(255, 51, 51));
         btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,6 +115,21 @@ public class GuiContador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContadorActionPerformed
+            contador.avanzar();
+            lblValor.setText(String.valueOf(contador.getValor()));
+    }//GEN-LAST:event_btnContadorActionPerformed
+
+    private void btnDescontarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescontarActionPerformed
+        contador.retroceder();
+        lblValor.setText(String.valueOf(contador.getValor()));
+    }//GEN-LAST:event_btnDescontarActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        contador.borrar();
+        lblValor.setText(String.valueOf(contador.getValor()));
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     /**
      * @param args the command line arguments
