@@ -110,7 +110,7 @@ public class GuiContador extends javax.swing.JFrame {
                     .addComponent(btnContador)
                     .addComponent(btnDescontar)
                     .addComponent(btnBorrar))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
